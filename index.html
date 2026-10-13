@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#0c1222" />
+  <meta name="screen-orientation" content="landscape" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icon-192.png" />
+  <title>Block Arena</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="rotate">↻ ROTATE TO LANDSCAPE</div>
+
+  <div id="loading" class="screen">
+    <div class="logo">BLOCK ARENA</div>
+    <div class="sub">Skill · Bombs · Last One Standing</div>
+    <div class="bar"><div class="fill" id="load-fill"></div></div>
+  </div>
+
+  <div id="menu" class="screen hidden">
+    <h1>BLOCK ARENA</h1>
+    <p class="tagline">Place bombs. Break walls. Outplay everyone.</p>
+    <button id="btn-solo" class="btn primary">SOLO vs AI</button>
+    <button id="btn-host" class="btn">HOST — Get Short Code</button>
+    <button id="btn-join" class="btn">JOIN — Enter Code</button>
+    <p class="hint">Install as app · Offline after first load</p>
+  </div>
+
+  <div id="lobby" class="screen hidden">
+    <h2>LOBBY</h2>
+    <div class="code-big" id="room-code">----</div>
+    <p id="lobby-status">Share this code with friends</p>
+    <div id="player-chips"></div>
+    <input id="name-input" maxlength="10" placeholder="Your name" value="Player" />
+    <div class="row">
+      <button id="btn-ready" class="btn primary">READY</button>
+      <button id="btn-start" class="btn hidden">START MATCH</button>
+    </div>
+    <div id="join-box" class="hidden">
+      <input id="join-code" maxlength="5" placeholder="CODE" style="text-transform:uppercase;letter-spacing:0.2em;text-align:center;width:120px;" />
+      <button id="btn-do-join" class="btn primary">JOIN</button>
+    </div>
+  </div>
+
+  <div id="game-wrap" class="hidden">
+    <canvas id="c"></canvas>
+    <div id="hud">
+      <div id="hud-left"></div>
+      <div id="hud-center">BLOCK ARENA</div>
+      <div id="hud-right"></div>
+    </div>
+    <div id="mobile">
+      <div id="dpad">
+        <button data-dir="up">▲</button>
+        <div class="mid">
+          <button data-dir="left">◀</button>
+          <button data-dir="right">▶</button>
+        </div>
+        <button data-dir="down">▼</button>
+      </div>
+      <button id="btn-bomb">💣</button>
+    </div>
+    <div id="result" class="hidden">
+      <h2 id="result-title">YOU WIN</h2>
+      <p id="result-sub"></p>
+      <button id="btn-again" class="btn primary">PLAY AGAIN</button>
+      <button id="btn-menu" class="btn">MENU</button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/network.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
